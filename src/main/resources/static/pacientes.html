@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Obtener pacientes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="webjars/jquery/jquery.min.js"></script>
+    </head>
+<body>
+
+    <button id="pacientes">Obtener el dni de todos los pacientes</button>
+
+
+    <div>
+        <ul id="salidapaciente">
+
+        </ul>
+        </div>
+   
+
+    <script>
+        $('#pacientes').click(function () {
+
+            $.getJSON('pacientes', function (data) {
+
+                $("ul#salidapaciente > li").remove();
+
+                $.each(data, function (key,value) {
+                    $("#salidapaciente").append('<li>' + value['dni']+'</li>');
+                });
+            });
+        });
+
+    </script>
+    
+    
+</body>
+</html>

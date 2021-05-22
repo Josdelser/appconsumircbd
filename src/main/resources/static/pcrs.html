@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Obtener pcrs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="webjars/jquery/jquery.min.js"></script>
+    </head>
+<body>
+
+    <button id="pcrs">Obtener resultados de las pcrs</button>
+
+
+        <div>
+        
+                <ul id="salidapcr">
+
+        </ul>
+    </div>
+
+    <script>
+  
+        
+        $('#pcrs').click(function () {
+
+            $.getJSON('pcrs', function (data) {
+
+                $("ul#salidapcr > li").remove();
+
+                $.each(data, function (key,value) {
+                    $("#salidapcr").append('<li>' + value['resultado']+'</li>');
+                });
+            });
+        });
+    </script>
+    
+    
+</body>
+</html>

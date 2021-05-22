@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Obtener camas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="webjars/jquery/jquery.min.js"></script>
+    </head>
+<body>
+
+    <button id="camas">Obtener el estado de las camas</button>
+ 
+
+        <div>
+        
+                <ul id="salidacamas">
+
+        </ul>
+        </div>
+
+    <script>
+
+        $('#camas').click(function () {
+
+            $.getJSON('camas', function (data) {
+
+                $("ul#salidacamas > li").remove();
+
+                $.each(data, function (key,value) {
+                    $("#salidacamas").append('<li>' + value['estado']+'</li>');
+                });
+            });
+        });
+        
+
+    </script>
+    
+    
+</body>
+</html>

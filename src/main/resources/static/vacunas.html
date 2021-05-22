@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Obtener vacunas</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="webjars/jquery/jquery.min.js"></script>
+    </head>
+<body>
+
+
+    <button id="vacunas">Obtener nombre de las vacunas puestas</button>
+
+
+        <div>
+        
+                <ul id="salidavacunas">
+
+        </ul>
+        </div>
+
+    <script>
+     
+        
+        $('#vacunas').click(function () {
+
+            $.getJSON('vacunas', function (data) {
+
+                $("ul#salidavacunas > li").remove();
+
+                $.each(data, function (key,value) {
+                    $("#salidavacunas").append('<li>' + value['nombre']+'</li>');
+                });
+            });
+        });
+        
+        
+    </script>
+    
+    
+</body>
+</html>
